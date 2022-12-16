@@ -14,6 +14,18 @@ some of the files require the use of additional python modules, there are instru
 
 ## Usage
 
+### run.py
+
+a really simple cli menu to run the other scripts
+<br/>
+
+`py run.py`
+<br/>
+<br/>
+<img src='./images/menu.png' width='200px'>
+
+type the number of the script you want to run and press enter
+
 ### scarpehtml.py
 
 set the url in the script and run
