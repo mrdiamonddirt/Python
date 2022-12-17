@@ -51,9 +51,15 @@ else:
     # Retrieve the number of crimes from the response
     data = response.json()
     num_crimes = len(data)
-    
+    print(data)
     # Print the number of crimes
     if year and month:
         print(f"Number of crimes in {month}/{year}: {num_crimes}")
     else:
         print(f"Number of crimes: {num_crimes}")
+
+ # Iterate over the crimes and print the latitude and longitude for each one
+    for crime in data:
+        latitude = crime["location"]["latitude"]
+        longitude = crime["location"]["longitude"]
+        print(f"Latitude: {latitude}, Longitude: {longitude}")
