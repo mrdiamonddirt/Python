@@ -62,11 +62,45 @@ if generate_crime_data.lower() == "yes":
         details = crime["category"] 
         outcome = crime["outcome_status"]
         crime_id = crime["id"]
+
+        # Set the icon of the marker based on the crime category
+        if details == "violent-crime":
+            icon = folium.Icon(icon="fa-fist-raised", prefix='fa')
+        elif details == "shoplifting":
+            icon = folium.Icon(icon="fa-shopping-cart", prefix='fa')
+        elif details == "theft-from-the-person":
+            icon = folium.Icon(icon="fa-user-secret", prefix='fa')
+        elif details == "anti-social-behaviour":
+            icon = folium.Icon(icon="fa-users", prefix='fa')
+        elif details == "criminal-damage-arson":
+            icon = folium.Icon(icon="fa-fire", prefix='fa')
+        elif details == "drugs":
+            icon = folium.Icon(icon="fa-pills", prefix='fa')
+        elif details == "other-theft":
+            icon = folium.Icon(icon="fa-box-open", prefix='fa')
+        elif details == "public-order":
+            icon = folium.Icon(icon="fa-gavel", prefix='fa')
+        elif details == "vehicle-crime":
+            icon = folium.Icon(icon="fa-car", prefix='fa')
+        elif details == "bicycle-theft":
+            icon = folium.Icon(icon="fa-bicycle", prefix='fa')
+        elif details == "possession-of-weapons":
+            icon = folium.Icon(icon="fa-bomb", prefix='fa')
+        elif details == "other-crime":
+            icon = folium.Icon(icon="fa-question", prefix='fa')
+        elif details == "burglary":
+            icon = folium.Icon(icon="fa-door-open", prefix='fa')
+        elif details == "robbery":
+            icon = folium.Icon(icon="fa-money-bill-wave", prefix='fa')
+        else:
+            icon = folium.Icon(icon="fa-exclamation-triangle", prefix='fa') 
+
         print(details)
         print(outcome)
         print(crime_id)
+
         # Create a marker on the map for the crime
-        folium.Marker(location=(latitude, longitude), popup=(crime_id, details, outcome)).add_to(map)
+        folium.Marker(location=(latitude, longitude), icon=icon, popup=(crime_id, details, outcome)).add_to(map)
 
     
     # Display the map
