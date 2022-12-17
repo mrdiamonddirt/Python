@@ -53,8 +53,14 @@ else:
     # Retrieve the number of crimes from the response
     data = response.json()
     num_crimes = len(data)
+    # Create the "crimes" folder if it doesn't exist
+    if not os.path.exists('crimes'):
+        os.makedirs('crimes')
+
+
      # Save the data to a .json file
-    filename = f"{postcode}_crimes.json"
+    postcode_without_spaces = postcode.replace(" ", "")
+    filename = f"crimes/{postcode_without_spaces}_crimes.json"
     with open(filename, "w") as f:
         json.dump(data, f)
     

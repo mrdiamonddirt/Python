@@ -43,9 +43,9 @@ generate_crime_data = input("Generate crime data? (yes/no): ")
 # Check if the user entered "yes"
 if generate_crime_data.lower() == "yes":
     # Get the crime data from some source (e.g. an API or a JSON file)
-    
+    postcode_without_spaces = postcode.replace(" ", "")
     # For now, we'll just use a list of crimes from json file matching the postcode
-    filename = f"{postcode}_crimes.json"
+    filename = f"crimes/{postcode_without_spaces}_crimes.json"
     with open(filename, "r") as f:
         crime_data = json.load(f)
 
@@ -72,7 +72,8 @@ if generate_crime_data.lower() == "yes":
         os.makedirs('map')
 
     # Set the filename and file type for the map
-    filename = f"{postcode}_map.html"
+    postcode_without_spaces = postcode.replace(" ", "")
+    filename = f"{postcode_without_spaces}_map.html"
 
     # Save the map to an HTML file with the specified filename
     map.save(f'map/{filename}')
