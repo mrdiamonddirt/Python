@@ -1,6 +1,7 @@
 import folium
 import requests
 import os
+import json
 
 # Function to get the latitude and longitude of a postcode
 def get_lat_long_from_postcode(postcode):
@@ -35,6 +36,34 @@ if lat_long is not None:
     # If the function returned a valid latitude and longitude, create a folium map object centered on that location
     map = folium.Map(location=lat_long, zoom_start=12)
     print('Map created')
+
+    # Prompt the user to enter "yes" or "no" to indicate if they want to generate crime data
+generate_crime_data = input("Generate crime data? (yes/no): ")
+
+# Check if the user entered "yes"
+if generate_crime_data.lower() == "yes":
+    # Get the crime data from some source (e.g. an API or a JSON file)
+    
+    # For now, we'll just use a list of crimes from json file matching the postcode
+    filename = f"{postcode}_crimes.json"
+    with open(filename, "r") as f:
+        crime_data = json.load(f)
+
+    # Iterate over the crime data
+    for crime in crime_data:
+        # Get the latitude and longitude of the crime
+        latitude = crime["location"]["latitude"]
+        print(latitude)
+        longitude = crime["location"]["longitude"]
+        print(longitude)
+        
+        # Get the category of the crime
+        details = crime["category"]
+        
+        # Create a marker on the map for the crime
+        folium.Marker(location=(latitude, longitude), popup=details).add_to(map)
+
+    
     # Display the map
     map
 

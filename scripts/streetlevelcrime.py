@@ -1,7 +1,9 @@
 # Description: This script prompts the user to enter a postcode and year/month, 
 # then prints the number of crimes that occurred in that area during that time period.
 
+import os
 import requests
+import json
 
 # Prompt the user to enter a postcode and year/month
 while True:
@@ -51,6 +53,12 @@ else:
     # Retrieve the number of crimes from the response
     data = response.json()
     num_crimes = len(data)
+     # Save the data to a .json file
+    filename = f"{postcode}_crimes.json"
+    with open(filename, "w") as f:
+        json.dump(data, f)
+    
+    print(f"Successfully saved {len(data)} crimes to {filename}")
     print(data)
     # Print the number of crimes
     if year and month:
@@ -58,8 +66,18 @@ else:
     else:
         print(f"Number of crimes: {num_crimes}")
 
- # Iterate over the crimes and print the latitude and longitude for each one
+  # Iterate over the crimes and print the details for each one
     for crime in data:
         latitude = crime["location"]["latitude"]
         longitude = crime["location"]["longitude"]
+        category = crime["category"]
+        outcome_status = crime["outcome_status"]
+        context = crime["context"]
+        
+        print("---")
         print(f"Latitude: {latitude}, Longitude: {longitude}")
+        print(f"Category: {category}")
+        print(f"Outcome status: {outcome_status}")
+        print(f"Context: {context}")
+
+        
