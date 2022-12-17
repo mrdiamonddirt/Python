@@ -3,7 +3,6 @@ import requests
 import os
 import json
 import webbrowser
-import re
 
 # Function to get the latitude and longitude of a postcode
 def get_lat_long_from_postcode(postcode):
