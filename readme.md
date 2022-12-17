@@ -26,7 +26,52 @@ a really simple cli menu to run the other scripts
 
 type the number of the script you want to run and press enter
 
-### scarpehtml.py
+### 1. getpagetopdf.py
+
+set the url in the script and run
+<br/>
+`py getpagetopdf.py`
+<br/>
+returns a pdf of the url and saves to a .pdf file in the same directory as the script
+
+### 2. getpokemon.py
+
+just run the script
+<br/>
+`py getpokemon.py`
+<br/>
+requests a pokemon number off the user and returns the name and image of the pokemon
+
+### 3. lookforform.py
+
+`py lookforform.py`
+<br/>
+returns a list of all the forms on a url
+
+### 4. postcodecrime.py
+
+`py postcodecrime.py`
+<br/>
+requests a postcode and a date from the user and returns the crimes details and location for that date
+saves to a json file in the crimes folder in the same directory as the script
+
+### 5. saveallimages.py
+
+set the url in the script and run
+<br/>
+`py saveallimages.py`
+<br/>
+returns all images from a url and saves to a the images folder in the same directory as the script
+
+### 6. savemapofpostcode.py
+
+`py savemapofpostcode.py`
+<br/>
+requests a postcode from the user and returns a map of the postcode and saves to a .html file in a folder called map in the same directory as the script,
+and opens the map in the default browser,
+can also plot crime data on the map if the streetlevelcrime.py script is run first to generate the crimedata json file
+
+### 7. scarpehtml.py
 
 set the url in the script and run
 <br/>
@@ -35,21 +80,11 @@ set the url in the script and run
 returns html from a url and saves to a .html file
 in the same directory as the script
 
-### getpagetopdf.py
+### 8. streetlevelcrime.py
 
-set the url in the script and run
+`py streetlevelcrime.py`
 <br/>
-`py getpagetopdf.py`
-<br/>
-returns a pdf of the url and saves to a .pdf file in the same directory as the script
-
-### saveallimages.py
-
-set the url in the script and run
-<br/>
-`py saveallimages.py`
-<br/>
-returns all images from a url and saves to a the images folder in the same directory as the script
+requests a postcode from the user and returns a json file of all the crimes in that postcode with an optional date and saves to a folder called crimes in the same directory as the script
 
 ---
 
