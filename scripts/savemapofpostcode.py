@@ -2,6 +2,7 @@ import folium
 import requests
 import os
 import json
+import webbrowser
 
 # Function to get the latitude and longitude of a postcode
 def get_lat_long_from_postcode(postcode):
@@ -80,7 +81,9 @@ if generate_crime_data.lower() == "yes":
 
     # Open the HTML file in the default web browser
     import webbrowser
-    webbrowser.open(f'map/{filename}')
+    # Construct the URL for the file
+    file_url = f"file://{os.path.abspath(f'map/{filename}')}"
+    webbrowser.open(file_url)
 
     
 else:
