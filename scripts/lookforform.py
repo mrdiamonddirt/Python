@@ -1,3 +1,5 @@
+# a script to see if a website has a form and return information about it
+
 import requests
 from bs4 import BeautifulSoup
 

@@ -30,6 +30,8 @@ lat_long = get_lat_long_from_postcode(postcode)
 
 # Check if the function returned a valid latitude and longitude
 if lat_long is not None:
+    # takes a postcode and returns a map of that are and saves it to a file
+    
     # If the function returned a valid latitude and longitude, create a folium map object centered on that location
     map = folium.Map(location=lat_long, zoom_start=12)
     print('Map created')

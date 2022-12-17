@@ -1,3 +1,6 @@
+# Description: This script prompts the user to enter a postcode and year/month, 
+# then prints the number of crimes that occurred in that area during that time period.
+
 import requests
 
 # Prompt the user to enter a postcode and year/month

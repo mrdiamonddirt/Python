@@ -1,3 +1,5 @@
+# a script to get information about a Pokemon from the PokeAPI
+
 import requests
 import json
 
