@@ -59,10 +59,14 @@ if generate_crime_data.lower() == "yes":
         print(longitude)
         
         # Get the category of the crime
-        details = crime["category"]
-        
+        details = crime["category"] 
+        outcome = crime["outcome_status"]
+        crime_id = crime["id"]
+        print(details)
+        print(outcome)
+        print(crime_id)
         # Create a marker on the map for the crime
-        folium.Marker(location=(latitude, longitude), popup=details).add_to(map)
+        folium.Marker(location=(latitude, longitude), popup=(crime_id, details, outcome)).add_to(map)
 
     
     # Display the map
