@@ -40,7 +40,16 @@ while True:
                 print(f"Error: {script} does not exist in the 'scripts' folder.")
                 continue
             print(f"Running {script}...")
-            exec(open(script_path).read())
+            # Get the arguments for the script
+            if len(sys.argv) > 1:
+                script_args = sys.argv[1:]
+            else:
+                script_args = input("Enter the arguments for the script (separated by spaces): ").split()
+
+            # Preserve the value of sys.argv[0] and append the user-provided arguments to the list
+            sys.argv = [sys.argv[0]] + script_args
+            # Run the script with the modified sys.argv variable
+            exec(open(script_path).read(), {"__name__": "__main__"})
         else:
             raise ValueError
     except ValueError:
