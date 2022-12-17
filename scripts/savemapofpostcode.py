@@ -71,12 +71,15 @@ if generate_crime_data.lower() == "yes":
     if not os.path.exists('map'):
         os.makedirs('map')
 
-    # Save the map to an HTML file
-    map.save('map/map.html')
+    # Set the filename and file type for the map
+    filename = f"{postcode}_map.html"
+
+    # Save the map to an HTML file with the specified filename
+    map.save(f'map/{filename}')
 
     # Open the HTML file in the default web browser
     import webbrowser
-    webbrowser.open('map/map.html')
+    webbrowser.open(f'map/{filename}')
 
     
 else:
