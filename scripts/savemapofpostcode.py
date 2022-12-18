@@ -67,35 +67,35 @@ if generate_crime_data.lower() == "yes":
 
         # Set the icon of the marker based on the crime category
         if details == "violent-crime":
-            icon = folium.Icon(icon="fa-fist-raised", prefix='fa', color=icon_color)
+            icon = folium.Icon(icon="fa-fist-raised", prefix='fa', color='red')
         elif details == "shoplifting":
-            icon = folium.Icon(icon="fa-shopping-cart", prefix='fa', color=icon_color)
+            icon = folium.Icon(icon="fa-shopping-cart", prefix='fa', color='blue')
         elif details == "theft-from-the-person":
-            icon = folium.Icon(icon="fa-user-secret", prefix='fa', color=icon_color)
+            icon = folium.Icon(icon="fa-user-secret", prefix='fa', color='blue')
         elif details == "anti-social-behaviour":
-            icon = folium.Icon(icon="fa-users", prefix='fa', color=icon_color)
+            icon = folium.Icon(icon="fa-users", prefix='fa', color='green')
         elif details == "criminal-damage-arson":
-            icon = folium.Icon(icon="fa-fire", prefix='fa', color=icon_color)
+            icon = folium.Icon(icon="fa-fire", prefix='fa', color='red')
         elif details == "drugs":
-            icon = folium.Icon(icon="fa-pills", prefix='fa', color=icon_color)
+            icon = folium.Icon(icon="fa-pills", prefix='fa', color='green')
         elif details == "other-theft":
-            icon = folium.Icon(icon="fa-box-open", prefix='fa', color=icon_color)
+            icon = folium.Icon(icon="fa-box-open", prefix='fa', color='blue')
         elif details == "public-order":
-            icon = folium.Icon(icon="fa-gavel", prefix='fa', color=icon_color)
+            icon = folium.Icon(icon="fa-gavel", prefix='fa', color='green')
         elif details == "vehicle-crime":
-            icon = folium.Icon(icon="fa-car", prefix='fa', color=icon_color)
+            icon = folium.Icon(icon="fa-car", prefix='fa', color='blue')
         elif details == "bicycle-theft":
-            icon = folium.Icon(icon="fa-bicycle", prefix='fa', color=icon_color)
+            icon = folium.Icon(icon="fa-bicycle", prefix='fa', color='blue')
         elif details == "possession-of-weapons":
-            icon = folium.Icon(icon="fa-bomb", prefix='fa', color=icon_color)
+            icon = folium.Icon(icon="fa-bomb", prefix='fa', color='red')
         elif details == "other-crime":
-            icon = folium.Icon(icon="fa-question", prefix='fa', color=icon_color)
+            icon = folium.Icon(icon="fa-question", prefix='fa', color='orange')
         elif details == "burglary":
-            icon = folium.Icon(icon="fa-door-open", prefix='fa', color=icon_color)
+            icon = folium.Icon(icon="fa-door-open", prefix='fa', color='red')
         elif details == "robbery":
-            icon = folium.Icon(icon="fa-money-bill-wave", prefix='fa', color=icon_color)
+            icon = folium.Icon(icon="fa-money-bill-wave", prefix='fa', color='red')
         else:
-            icon = folium.Icon(icon="fa-exclamation-triangle", prefix='fa', color=icon_color) 
+            icon = folium.Icon(icon="fa-exclamation-triangle", prefix='fa', color='orange') 
 
         print(details)
         print(outcome)
