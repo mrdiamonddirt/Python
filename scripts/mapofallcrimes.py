@@ -45,10 +45,14 @@ generate_crime_data = input("Generate crime data? (yes/no): ")
 if generate_crime_data.lower() == "yes":
     # Get the crime data from some source (e.g. an API or a JSON file)
     postcode_without_spaces = postcode.replace(" ", "")
-    # For now, we'll just use a list of crimes from json file matching the postcode
-    filename = f"crimes/{postcode_without_spaces}_crimes.json"
-    with open(filename, "r") as f:
-        crime_data = json.load(f)
+
+
+    # For now, we'll just use a list of crimes from all the file ending .json
+for file in os.listdir('crimes'):
+    if file.endswith('.json'):
+        with open(f'crimes/{file}', 'r') as f:
+            crime_data = json.load(f)
+        
 
     # Iterate over the crime data
     for crime in crime_data:
@@ -103,12 +107,9 @@ if generate_crime_data.lower() == "yes":
 
         # Create a marker on the map for the crime
         folium.Marker(location=(latitude, longitude), icon=icon, popup=(crime_id, details, outcome)).add_to(map)
-    
-else:
-    # If the function returned None, print an error message
-    print('Invalid postcode')
 
-# Display the map
+    
+    # Display the map
     map
 
     # Create the "map" folder if it doesn't exist
@@ -127,3 +128,8 @@ else:
     # Construct the URL for the file
     file_url = f"file://{os.path.abspath(f'map/{filename}')}"
     webbrowser.open(file_url)
+
+    
+else:
+    # If the function returned None, print an error message
+    print('Invalid postcode')
