@@ -123,13 +123,12 @@ for file in os.listdir('crimes'):
     # Save the map to an HTML file with the specified filename
     map.save(f'map/{filename}')
 
-    # Open the HTML file in the default web browser
-    import webbrowser
-    # Construct the URL for the file
-    file_url = f"file://{os.path.abspath(f'map/{filename}')}"
-    webbrowser.open(file_url)
-
     
 else:
     # If the function returned None, print an error message
     print('Invalid postcode')
+
+# Open the HTML file in the default web browser
+# Construct the URL for the file
+file_url = f"file://{os.path.abspath(f'map/{filename}')}"
+webbrowser.open(file_url)
