@@ -109,21 +109,21 @@ else:
     print('Invalid postcode')
 
 # Display the map
-    map
+map
 
     # Create the "map" folder if it doesn't exist
-    if not os.path.exists('map'):
-        os.makedirs('map')
+if not os.path.exists('map'):
+    os.makedirs('map')
 
-    # Set the filename and file type for the map
-    postcode_without_spaces = postcode.replace(" ", "")
-    filename = f"{postcode_without_spaces}_map.html"
+# Set the filename and file type for the map
+postcode_without_spaces = postcode.replace(" ", "")
+filename = f"{postcode_without_spaces}_map.html"
 
-    # Save the map to an HTML file with the specified filename
-    map.save(f'map/{filename}')
+# Save the map to an HTML file with the specified filename
+map.save(f'map/{filename}')
 
-    # Open the HTML file in the default web browser
-    import webbrowser
-    # Construct the URL for the file
-    file_url = f"file://{os.path.abspath(f'map/{filename}')}"
-    webbrowser.open(file_url)
+# Open the HTML file in the default web browser
+import webbrowser
+# Construct the URL for the file
+file_url = f"file://{os.path.abspath(f'map/{filename}')}"
+webbrowser.open(file_url)
